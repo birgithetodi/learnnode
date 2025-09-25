@@ -1,25 +1,22 @@
-let text = 'Hello ';
-text = text + 'Biku!';
-console.log(text);
-text = "douscb"; //topeltjutumärgid kui ' tahad teksti sees kasutada
-text = 'edcewncue';
+let array = [1, 2, 3, 'hii', true, [1, 2, 3]];
+//array on nimekiri asjadest
+//see nr 1 on positsioonil 0
+console.log(array);
+console.log(array[2]);
+console.log(array[5][1]);
+//[...] võtab nimekirjast ainult teatud koha
+array[3] = 'Biku';
+console.log(array);
 
-text = "Don't use double quotes unless needed";
-text = 'Don\'t use double quotes\n unless needed'; //kaldkriipsuga saab kirjutada don't-ile ' ülakoma ilma et see errori annaks
-// \n annab uue rea. uue rea sümbol (new line)
-console.log(text);
+console.log(array.length); //ütleb pikkuse tekstis
+array.push('new value'); //loob juurde asju
+array.push(1, 2, 3, 'duhew',true); //saab ka mitu asja lisada
+console.log(array);
 
-let name = 'Birgithe';
-let age = 17;
-let sexuality = 'Gay';
-text = 'You\'r name is ' + name + ' and you are ' + age + ' years old and you\'re sexuality is ' + sexuality + '!';
-console.log(text);
+//array.fill() //lubab täita array millegagi
+//array.flat() //mitme dimensioonilisest teeb ühe dimensioonilise
+//array.off() //näitab mis positśioonil on
+//array.join() //lisab iga tekti vahele asjamis sa tahad
 
-text = `Your name is ${name} 
-and you are ${age} years old 
-and you are ${sexuality}!`;
-// `` nendega saad panna teksti mitmele reale nii et see ei läheks katki "" ja '' märkidega lähb katki
-console.log(text);
-
-text = text.toUpperCase();
+let text = array.join('UwU');
 console.log(text);
