@@ -1,22 +1,28 @@
-let array = [1, 2, 3, 'hii', true, [1, 2, 3]];
-//array on nimekiri asjadest
-//see nr 1 on positsioonil 0
-console.log(array);
-console.log(array[2]);
-console.log(array[5][1]);
-//[...] võtab nimekirjast ainult teatud koha
-array[3] = 'Biku';
-console.log(array);
+let obj = {
+    name: 'Biku',
+    age: 17,
+    sexuality: 'Gay',
+    fruits: ['pineapple', 'blueberry', 'strawberry'],
+    cat: {
+        age: 3,
+        name: 'Kitty',
+        gender: 'female',
+    },
+    parentName: 'Monika',
+    as2sd: 'asd',
+    'parent-name': 'name',
+    'as2sd': 'asd',
+    'some things': 'asd2',
+};
 
-console.log(array.length); //ütleb pikkuse tekstis
-array.push('new value'); //loob juurde asju
-array.push(1, 2, 3, 'duhew',true); //saab ka mitu asja lisada
-console.log(array);
+console.log(obj); //annab kogu info
+console.log(obj.name); //obj. ... annab teatud info
+console.log(obj.fruits[2]); //annab fruits seest teise sõna mis on
+console.log(obj.cat.name); //annab objekti seest ainult1 teatud asja
+console.log(obj['parent-name']);
+console.log(Object.keys(obj)); //teeb array kus on aiult võtmete nimed (name,sexuality,cat,age jne)
 
-//array.fill() //lubab täita array millegagi
-//array.flat() //mitme dimensioonilisest teeb ühe dimensioonilise
-//array.off() //näitab mis positśioonil on
-//array.join() //lisab iga tekti vahele asjamis sa tahad
-
-let text = array.join('UwU');
-console.log(text);
+//kui panna see parentName siis see läheb errorisse kui panna "parent name", "parent-name"jne
+//2asd 'asd', not allowed to start with a number
+// read 13-15 pol soovitatav kuna tekivad vead
+//console.log(obj.parent-name) annab errori kuna ta arvab et sa tahad lahutada parent nimest, rida 22 on õige varjant
