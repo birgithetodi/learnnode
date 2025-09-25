@@ -1,59 +1,43 @@
-function hello() {
-    console.log('Hello world!')
-}
+let bool = true;
+console.log(bool);
+bool = false;
+console.log(bool);
 
-hello();
-hello();
-hello();
-hello();
+bool = true &&  false; //ainuke võimalus kus vastus tuleks true peab see olema true && true
+bool = true &&  true; //vastus true
+bool = false &&  false; //vastus false
+bool = false && true; //vastus false
+console.log(bool);
 
-function helloName(name) {
-    console.log(`Hello ${name}!`)
-}
+bool = true || false; //OR, vastus on true
+bool = false || true; //vastus on true
+bool = false || false; //vastus on false
+bool = true || true; //vastus on true
+console.log(bool);
 
-helloName('Birgithe');
-helloName('Marily');
+bool = !true; //NOT tehe(pole true)
+console.log(bool);
+bool = !false;
+console.log(bool);
 
-function hi(name='Nameless', age='infinite') {
-    console.log(`Hi ${name} you are ${age} years old`)
-}
+bool = (true && false || true) && !(false || true && false);
+console.log(bool);
 
-hi('Birgithe', 17);
-hi('Marily', 16);
-hi();
+bool = 10 > 5;
+bool = 10 < 5;
+bool = 10 > 10;
+bool = 10 < 10;
+bool = 10 == 10;
+bool = '10' == 10; //true kuna see teeb '10' tavaliseks kümneks ja see on võrdne 10
+bool = '10' === 10; //vale "range võrdus" kõik peab klappima
+bool = 10 >= 10;
+bool = 10 <= 10;
+bool = '10' != 10; //!= on mittevõrsus
+bool = '10' !== 10; //range mitte võrdne tehe
+console.log(bool);
 
-let sum = function (a, b) {
-    return a+b;
-}
+bool = [] == ''; //true
+bool = [1, 2, 3] == 1; //false
+console.log(bool);
 
-let answer = sum(4, 5);
-console.log(answer);
-console.log(sum(6, 10));
-sum(5, 6);
 
-let sub = (a, b) => {
-    return a-b;
-}
-console.log(sub(6, 10));
-
-let mult = (a, b) => a*b;
-console.log(mult(6, 10))
-
-let root = a => a*a;
-console.log(root(6, 10));
-
-let cool = () => console.log('cool');
-cool();
-
-let awesome = {
-    party: function () {
-        console.log('PARTY!');
-    },
-    cool: () => console.log('cool'),
-    nice() {
-        console.log('nice');
-    }
-};
-awesome.party();
-awesome.cool();
-awesome.nice();
