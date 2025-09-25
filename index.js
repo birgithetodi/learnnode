@@ -61,3 +61,14 @@ switch(day) {
 
 //case 5: case 6: console.log('Laupäev'); break;
 //selle koodiga saab sama teha
+
+let days = ['Pühapäev', 'Esmaspäev', 'Teisipäev', 'Kolmapäev', 'Neljapäev', 'Reede', 'Laupäev'];
+console.log(days[day]);
+
+num = 10;
+answer = num > 10 ? 'Suurem' : 'Väiksem'; //shorthand if
+console.log(answer);
+
+let value = 'HAHA'; //null coalecing operator
+answer = value ?? 'Something else';
+console.log(answer);
