@@ -36,10 +36,28 @@ export default {
           }
         ],
       },
+      {
+                test: /\.njk$/,
+                use: [
+                    {
+                        loader: 'simple-nunjucks-loader',
+                        options: {}
+                    }
+                ]
+            }
     ],
   },
-   plugins: [new HtmlWebpackPlugin({
-    template: './src/index.html'
-   })
+   plugins: [
+    new HtmlWebpackPlugin({
+    template: './src/views/index.njk'
+   }),
+   new HtmlWebpackPlugin({
+    filename: 'about.html',
+    template: './src/views/about.njk'
+   }),
+   new HtmlWebpackPlugin({
+    filename: 'contacts.html',
+    template: './src/views/contacts.njk'
+   }),
 ],
 };
