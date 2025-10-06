@@ -47,10 +47,13 @@ export default {
             }
     ],
   },
-   plugins: [
-    new HtmlWebpackPlugin({
-    template: './src/views/index.njk'
-   }),
+   plugins: [ new HtmlWebpackPlugin({
+    template: "./src/views/index.njk",
+    templateParameters: {
+      name: 'Birgithe',
+      fruits: ['strawberry', 'blueberry', 'pineapple'],
+    }
+  }),
    new HtmlWebpackPlugin({
     filename: 'about.html',
     template: './src/views/about.njk'
