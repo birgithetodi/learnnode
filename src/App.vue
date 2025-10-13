@@ -1,14 +1,29 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import ItemList from './ItemList.vue';
 
-    let newItem = ref('Hello Vue!');
-    let items = ref(['Aperol', 'Apelsin', 'Schweppes']);
+    let newItem = ref('');
+    let i = 1;
+    let items = ref([
+        {id: i++, name: 'Aperol', isDone: true},
+        {id: i++, name: 'Apelsin', isDone: false},
+        {id: i++, name: 'Schweppes', isDone: true},
+        {id: i++, name: 'Mandariin', isDone: false},
+    ]);
     let code = ref(404);
 
 function addItem(){
-    items.value.push(newItem.value);
+    if(newItem.value.trim() !== '') {
+    items.value.push({id: i++,name: newItem.value.trim(), isDone: false});
+    }
     newItem.value = '';
 }
+let doneItems = computed(() => {
+    return items.value.filter(item => item.isDone);
+});
+let toDoItems = computed(() => {
+    return items.value.filter(item => !item.isDone);
+});
 
 </script>pt
 <template>
@@ -16,7 +31,7 @@ function addItem(){
     <div class="content">
         <div class="field has-addons">
             <div class="control">
-                <input v-model="newItem" class="input" type="text" placeholder="Add item">
+                <input v-model="newItem" class="input" type="text" placeholder="Add item" @keydown.enter="addItem">
             </div>
             <div class="control">
                 <button class="button is-info" @click="addItem">
@@ -24,10 +39,11 @@ function addItem(){
                 </button>
             </div>
         </div>
-        <h1>{{ newItem }}</h1>
-        <ul>
-            <li v-for="item in items">{{ item }}</li>
-        </ul>
+
+    <ItemList :items="items" title="Items"></ItemList>
+    <ItemList :items="doneItems"  title="Done items"></ItemList>
+    <ItemList :items="toDoItems"  title="ToDo items"></ItemList>
+
         <input v-model="code" class="input" type="number" placeholder="Enter error code">
         <img :src="'https://http.cat/'+ code">
     </div>
