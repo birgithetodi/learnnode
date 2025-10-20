@@ -1,9 +1,12 @@
 <script setup>
+import RouterTabs from './components/RouterTabs.vue';
+
 
 
 </script>
 <template>
-    <RouterLink class="button is-danger" to="/">ToDo</RouterLink>
-    <RouterLink class="button is-danger" to="/modals">Modals</RouterLink>
-    <RouterView></RouterView>
+   <RouterTabs></RouterTabs>
+   <Suspense>
+        <RouterView></RouterView>
+    </Suspense>
 </template>
