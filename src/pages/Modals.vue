@@ -8,12 +8,11 @@ import ImgModal from '../components/ImgModal.vue';
     let modal3Active = ref(false);
 </script>
 <template>
-    <div class="container mt-3">
     <button class="button is-warning mx-2" @click="modalActive=true">Open Modal</button>
     <button class="button is-danger mx-2" @click="modal2Active=true">Open Modal2</button>
      <button class="button is-primary mx-2" @click="modal3Active=true">Open Modal3</button>
-    </div>
-<ImgModal :active="modalActive" @close="modalActive = false" url="https://placekittens.com/200/300?r=1"></ImgModal>
+
+     <ImgModal :active="modalActive" @close="modalActive = false" url="https://placekittens.com/200/300?r=1"></ImgModal>
 <ImgModal :active="modal2Active" @close="modal2Active = false" url="https://placekittens.com/200/300?r=2"></ImgModal>
     <Modal :active="modal3Active" @close="modal3Active = false">
         <div class="card">
