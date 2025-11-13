@@ -9,14 +9,15 @@ let { lat, lng, zoom } = defineProps(['lat', 'lng', 'zoom']);
 
 let id = 'map-' + useId();
 let map = null;
+let marker = null;
 onMounted(() => {
     map = L.map(id).setView([lat, lng], zoom);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-    var marker = L.marker([59.42681, 24.743445]).addTo(map);
-
+    marker = L.marker([lat, lng]).addTo(map);
+    L.marker([59.21672, 24.65902]).addTo(map);
     var polygon = L.polygon([
         [59.21672, 24.65902],
         [59.21671, 24.65931],
@@ -38,9 +39,13 @@ watch(() => zoom, (zoom, oldZoom) => {
 });
 watch(() => lat, lat => {
     map.panTo([lat, lng]);
+    marker.remove();
+    marker = L.marker([lat, lng]).addTo(map);
 });
 watch(() => lng, lng => {
     map.panTo([lat, lng]);
+    marker.remove();
+    marker = L.marker([lat, lng]).addTo(map);
 });
 
 </script>
