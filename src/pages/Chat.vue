@@ -54,14 +54,13 @@ function send() {
         <div v-if="!msg.isMe" class="cell is-col-start-2">
         </div>
 
-
+        <!--me message-->
         <div v-if="msg.isMe" class=" cell  is-col-start-1">
         </div>
         <div v-if="msg.isMe" class="notification is-light is-primary cell is-col-start-2">
           <p>{{ msg.value }}</p>
           <b>{{ msg.name }}</b>
         </div>
-
 
       </div>
     </div>
