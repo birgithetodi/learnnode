@@ -32,6 +32,20 @@ process.stdin.on('keypress', (ch, key) => {
         write(' ');
         write('\x1b[1D');
     }
+    if(key.name === 's'){
+        write('\x1b[1D');
+        write(' ');
+        write('\x1b[1D');
+        write('\x1b[1B');
+        write('@');
+    }
+    if(key.name === 'w'){
+        write('\x1b[1D');
+        write(' ');
+        write('\x1b[1D');
+        write('\x1b[1A');
+        write('@');
+    }
 });
   
 
