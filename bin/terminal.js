@@ -1,27 +1,52 @@
 function write(text) {
-    process.stdout.write(text);
-};
+  process.stdout.write(text);
+}
 
-import chalk from "chalk";
 
-write(chalk.red.bgYellow.strikethrough('Hello Biku'));
-write(chalk.bgAnsi256(67)('67!'));
-write(chalk.bgRgb(255, 28, 98)('HAYY <3'));
+import readline from "readline";
+const blank = '\n'.repeat(process.stdout.rows)
+console.log(blank)
+readline.cursorTo(process.stdout, 0, 0)
+readline.clearScreenDown(process.stdout)
 
-import inquirer from "inquirer";
+write('@');
 
-let answers = await inquirer.prompt([
-{
-    type: 'input',
-    name: 'name',
-    message: 'What is your name?',
-},
-{
-    type: 'input',
-    name: 'age',
-    message: 'How old ar you?',
-},
-]);
+import { read } from "fs";
+import keypress from "keypress";
 
-console.log(`Hello ${answers.name}!!!!!`)
-console.log(`You are ${answers.age} years old!`)
+keypress(process.stdin);
+
+process.stdin.on('keypress', (ch, key) => {
+    //console.log(ch, key);
+    if(key && key.name === 'c' && key.ctrl) {
+        process.exit();
+    }
+    if(key.name === 'd'){
+        write('\x1b[1D');
+        write(' ');
+        write('@');
+    }
+    if(key.name === 'a'){
+        write('\x1b[2D');
+        write('@');
+        write(' ');
+        write('\x1b[1D');
+    }
+    if(key.name === 's'){
+        write('\x1b[1D');
+        write(' ');
+        write('\x1b[1D');
+        write('\x1b[1B');
+        write('@');
+    }
+    if(key.name === 'w'){
+        write('\x1b[1D');
+        write(' ');
+        write('\x1b[1D');
+        write('\x1b[1A');
+        write('@');
+    }
+});
+  
+
+process.stdin.setRawMode(true);
