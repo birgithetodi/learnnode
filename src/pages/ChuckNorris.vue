@@ -6,6 +6,13 @@ console.log(data);
 
 let joke = ref('');
 joke.value = data.value;
+
+try {
+res = await fetch('https://xkcd.com/');
+console.log(res);
+} catch(err){
+    console.log(err);
+};
 </script>
 
 <template>
