@@ -1,18 +1,15 @@
 import inquirer from 'inquirer';
 
 const answers = await inquirer.prompt([
-     {
-      type: 'password',
-      name: 'hiddenPassword',
-      message: 'Enter hidden password:',
-      mask: '', 
-     },
   {
-    type: 'password',
-    name: 'password',
-    message: 'Enter your password:',
-    mask: '*',
+    type: 'confirm',           
+    name: 'proceed',           
+    message: 'Do you want to continue?', 
+    default: true,            
+    transformer: (input, answers, flags) => {
+      return input ? '✅ Yes' : '❌ No';
+    },
   },
 ]);
 
-console.log('Password set successfully!');
+console.log('Your answer:', answers.proceed);
