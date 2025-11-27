@@ -1,18 +1,20 @@
-import inquirer from "inquirer";
+import inquirer from 'inquirer';
 
 const answers = await inquirer.prompt([
   {
-    type: "expand",
-    name: "overwrite",
-    message: "Conflict on `file.js`:",
-    choices: [
-      { key: "y", name: "Overwrite", value: "overwrite" },
-      { key: "a", name: "Overwrite all next", value: "overwrite_all" },
-      { key: "d", name: "Show diff", value: "diff" },
-      new inquirer.Separator(),
-      { key: "x", name: "Abort", value: "abort" }
-    ]
-  }
+    type: 'editor',
+    name: 'bio',
+    message: 'Write a short bio (at least 3 lines):',
+    validate: (text) => text.split('\n').length >= 3 || 'Must be at least 3 lines.',
+    waitForUserInput: true,
+  },
+  {
+    type: 'editor',
+    name: 'edition',
+    message: 'Edit the following content:',
+    default: 'Hello, World!',
+    waitForUserInput: false,
+  },
 ]);
 
 console.log(answers);
