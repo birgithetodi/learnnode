@@ -1,19 +1,17 @@
 import inquirer from "inquirer";
 
 const answers = await inquirer.prompt([
-    {type: 'input', name: 'sss', message: 'sdasda'},
   {
-    type: "list",
-    name: "size",
-    message: "What size do you need?",
+    type: "expand",
+    name: "overwrite",
+    message: "Conflict on `file.js`:",
     choices: [
-      { name: 'Jumbo', value: 'Jumbo' },
-      { name: 'Large', value: 'Large' },
-      { name: 'Standard', value: 'Standard' },
-      { name: 'Medium', value: 'Medium' },
-      { name: 'Small', value: 'Small' },
-      { name: 'Micro', value: 'Micro' },
-    ],
+      { key: "y", name: "Overwrite", value: "overwrite" },
+      { key: "a", name: "Overwrite all next", value: "overwrite_all" },
+      { key: "d", name: "Show diff", value: "diff" },
+      new inquirer.Separator(),
+      { key: "x", name: "Abort", value: "abort" }
+    ]
   }
 ]);
 
