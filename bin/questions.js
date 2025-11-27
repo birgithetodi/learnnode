@@ -1,20 +1,18 @@
 import inquirer from 'inquirer';
 
 const answers = await inquirer.prompt([
+     {
+      type: 'password',
+      name: 'hiddenPassword',
+      message: 'Enter hidden password:',
+      mask: '', 
+     },
   {
-    type: 'editor',
-    name: 'bio',
-    message: 'Write a short bio (at least 3 lines):',
-    validate: (text) => text.split('\n').length >= 3 || 'Must be at least 3 lines.',
-    waitForUserInput: true,
-  },
-  {
-    type: 'editor',
-    name: 'edition',
-    message: 'Edit the following content:',
-    default: 'Hello, World!',
-    waitForUserInput: false,
+    type: 'password',
+    name: 'password',
+    message: 'Enter your password:',
+    mask: '*',
   },
 ]);
 
-console.log(answers);
+console.log('Password set successfully!');
